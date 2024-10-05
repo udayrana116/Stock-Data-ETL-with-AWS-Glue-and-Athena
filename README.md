@@ -71,4 +71,7 @@ https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html
 7. And under Database se;ect the one we created above.
 8. Now we can see the tables crawled under Tables and we can query the Stocks data we pulled.
 
+## Workflow
+To orchestrate the pipeline we can set the triggers under Workflows adn schedule the AWS Glue Jobs and crawler.
+
 
