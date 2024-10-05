@@ -32,3 +32,43 @@ Potential Use Cases:
 
 This project serves as a scalable and automated approach to collect, transform, and analyze stock market data using AWS’s serverless technologies. It's ideal for those looking to experiment with cloud-based ETL processes and perform data analytics at scale.
 
+Steps to follow:-
+
+## IAM role for AWS Glue
+Need to grant IAM role permissions that AWS Glue can assume when calling other services .
+This document link can be followed to set it up:-
+https://docs.aws.amazon.com/glue/latest/dg/create-an-iam-role.html
+
+## AWS Glue Job
+1. Select "Script editor", choose "Python shell" engine and start fresh to create script.
+2. In the Job details tab chosse the above created IAM role and save it.
+3. Take the "Stocks.py" from the script folder and copy-paste it's content in this new created job.
+4. In the script update the bucket name and file as per your preference.
+5. Running this job will output csv file to the s3 bucket folder.
+
+## AWS Glue Data Catalog
+1. Go to Databses in AWS Glue.
+2. Select Add database.
+3. Provide a name & Description to it and select Create database.
+
+## AWS Glue Crawler
+1. Go to Crawlers in AWS Glue.
+2. Select Create crawler.
+3. Provide some name for this crawler.
+4. Keep data source added to "Not yet" and select "Add a data source".
+5. In the S3 path section choose the file output by the script and select Add on S3 data source and select next
+6. Select the IAM role created for Glue tasks.
+7. In database select the one created above.
+8. For the crawler schedule leave it to "On demand" for now.  
+
+## Amazon Athena
+1. Before using Athena, create a folder in your create s3 bucket with name "athena_results".
+2. This will be to store the athena results as an object.
+3. Go to Amazon Athena and select Query esitor tabs and go to settings.
+4. Select manage under Query result and encryption settings and select the folder "athena_results" under Location of query result.
+5. Now we are ready to query the crawled tables.
+6. Under data source choose "AwsDataCatalog".
+7. And under Database se;ect the one we created above.
+8. Now we can see the tables crawled under Tables and we can query the Stocks data we pulled.
+
+
