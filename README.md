@@ -1,6 +1,8 @@
 # Stock-Data-ETL-with-AWS-Glue-and-Athena
 This project demonstrates an end-to-end data pipeline for scraping stock market data from the web, transforming it using AWS Glue, and analyzing it using Amazon Athena. It leverages AWS Glue’s Jobs and Crawlers to automate the ETL process and uses Athena to perform queries on the transformed data for further analysis.
+
 ![1](https://github.com/user-attachments/assets/2b46c12b-95be-4c44-bf0e-f8d59d8d60dc)
+
 
 Key Features:
 - Web Scraping: Scrapes real-time stock market data from publicly available sources using Python.
